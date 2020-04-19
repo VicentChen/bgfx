@@ -1,0 +1,78 @@
+---
+BasedOnStyle: Google
+
+AccessModifierOffset: -2
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+# AlignConsecutiveMacros: true # VS2019 not yet support
+AlignEscapedNewlines: Left
+AlignOperands: true
+AlignTrailingComments: true
+# AllowAllArgumentsOnNextLine: true # VS2019 not yet support
+# AllowAllConstructorInitializersOnNextLine: true # VS2019 not yet support
+AllowAllParametersOfDeclarationOnNextLine: true
+# AllowShortBlocksOnASingleLine: Always # VS2019 not yet support
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
+# AllowShortIfStatementsOnASingleLine: Always # VS2019 not yet support
+# AllowShortLambdasOnASingleLine: All # VS2019 not yet support
+AllowShortLoopsOnASingleLine: true
+# AlwaysBreakAfterDefinitionReturnType: None # VS2019 not yet support
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+# AlwaysBreakTemplateDeclarations: MultiLine # VS2017 not yet support
+BinPackArguments: true
+BinPackParameters: true
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Attach
+BreakBeforeTernaryOperators: false
+BreakConstructorInitializers: AfterColon
+# BreakInheritanceList: AfterColon # VS2017 not yet support
+BreakStringLiterals: true
+ColumnLimit: 120
+CompactNamespaces: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ConstructorInitializerIndentWidth: 2
+ContinuationIndentWidth: 2
+Cpp11BracedListStyle: true
+# DeriveLineEnding: false # VS2019 not yet support
+DerivePointerAlignment: false
+DisableFormat: false
+FixNamespaceComments: true
+IncludeBlocks: Regroup
+IndentCaseLabels: false
+# IndentPPDirectives: BeforeHash  # VS2019 not yet support
+IndentWidth: 2
+IndentWrappedFunctionNames: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+Language: Cpp
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: None
+PointerAlignment: Left
+ReflowComments: true
+SortIncludes: false
+SortUsingDeclarations: false
+SpaceAfterCStyleCast: false
+# SpaceAfterLogicalNot: false # VS2019 not yet support
+SpaceAfterTemplateKeyword: false
+SpaceBeforeAssignmentOperators: true
+# SpaceBeforeCpp11BracedList: false # VS2017 not yet support
+# SpaceBeforeCtorInitializerColon: true # VS2017 not yet support
+# SpaceBeforeInheritanceColon: true # VS2017 not yet support
+SpaceBeforeParens: ControlStatements
+# SpaceBeforeRangeBasedForLoopColon: true # VS2017 not yet support
+# SpaceBeforeSquareBrackets: false # VS2019 not yet support
+# SpaceInEmptyBlock: false # VS2019 not yet support
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+# Standard: Latest # VS2019 not yet support
+TabWidth: 2
+# UseCRLF: true # VS2019 not yet support
+UseTab: ForIndentation
+...
