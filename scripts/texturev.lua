@@ -2,6 +2,8 @@ project ("texturev")
 	uuid (os.uuid("texturev") )
 	kind "ConsoleApp"
 
+	flags { "Cpp17" }
+
 	configuration {}
 
 	includedirs {

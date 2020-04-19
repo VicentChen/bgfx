@@ -4,6 +4,8 @@ project ("geometryv")
 
 	configuration {}
 
+	flags { "Cpp17" }
+
 	includedirs {
 		path.join(BX_DIR,   "include"),
 		path.join(BIMG_DIR, "include"),

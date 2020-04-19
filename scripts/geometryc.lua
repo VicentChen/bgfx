@@ -7,6 +7,8 @@ project "geometryc"
 	uuid (os.uuid("geometryc"))
 	kind "ConsoleApp"
 
+	flags { "Cpp17" }
+
 	includedirs {
 		path.join(BX_DIR, "include"),
 		path.join(BGFX_DIR, "include"),

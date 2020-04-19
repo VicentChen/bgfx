@@ -6,6 +6,8 @@
 project ("example-glue")
 	kind "StaticLib"
 
+	flags { "Cpp17" }
+
 	includedirs {
 		path.join(BX_DIR,   "include"),
 		path.join(BIMG_DIR, "include"),
@@ -17,8 +19,11 @@ project ("example-glue")
 		path.join(BGFX_DIR, "examples/common/example-glue.cpp"),
 	}
 
+
 project ("example-common")
 	kind "StaticLib"
+
+	flags { "Cpp17" }
 
 	includedirs {
 		path.join(BX_DIR,   "include"),

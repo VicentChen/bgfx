@@ -203,6 +203,7 @@ function exampleProjectDefaults()
 
 	flags {
 		"FatalWarnings",
+		"Cpp17"
 	}
 
 	links {

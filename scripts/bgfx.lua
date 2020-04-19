@@ -82,6 +82,8 @@ function bgfxProjectBase(_kind, _defines)
 		"bx",
 	}
 
+	flags { "Cpp17" }
+
 	if _OPTIONS["with-glfw"] then
 		defines {
 			"BGFX_CONFIG_MULTITHREADED=0",
