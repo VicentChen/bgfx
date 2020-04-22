@@ -340,8 +340,8 @@ BX_PRAGMA_DIAGNOSTIC_POP();
 		return bx::kExitSuccess;
 	}
 
-	static const InputBinding s_bindings[] =
-	{
+	static const InputBinding s_bindings[] = {
+    { entry::Key::Esc,          entry::Modifier::None,      1, NULL, "exit"                              },
 		{ entry::Key::KeyQ,         entry::Modifier::LeftCtrl,  1, NULL, "exit"                              },
 		{ entry::Key::KeyQ,         entry::Modifier::RightCtrl, 1, NULL, "exit"                              },
 		{ entry::Key::KeyF,         entry::Modifier::LeftCtrl,  1, NULL, "graphics fullscreen"               },
@@ -359,7 +359,6 @@ BX_PRAGMA_DIAGNOSTIC_POP();
 		{ entry::Key::F10,          entry::Modifier::None,      1, NULL, "graphics hidpi"                    },
 		{ entry::Key::Print,        entry::Modifier::None,      1, NULL, "graphics screenshot"               },
 		{ entry::Key::KeyP,         entry::Modifier::LeftCtrl,  1, NULL, "graphics screenshot"               },
-
 		INPUT_BINDING_END
 	};
 
