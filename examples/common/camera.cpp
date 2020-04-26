@@ -75,14 +75,12 @@ static const InputBinding s_camBindings[] =
 
 struct Camera
 {
-	struct MouseCoords
-	{
+	struct MouseCoords {
 		int32_t m_mx;
 		int32_t m_my;
 	};
 
-	Camera()
-	{
+	Camera() {
 		reset();
 		entry::MouseState mouseState;
 		update(0.0f, mouseState);
@@ -91,33 +89,21 @@ struct Camera
 		inputAddBindings("camBindings", s_camBindings);
 	}
 
-	~Camera()
-	{
-		inputRemoveBindings("camBindings");
-	}
+	~Camera() { inputRemoveBindings("camBindings"); }
 
-	void reset()
-	{
-		m_mouseNow.m_mx  = 0;
-		m_mouseNow.m_my  = 0;
-		m_mouseLast.m_mx = 0;
-		m_mouseLast.m_my = 0;
-		m_eye.x  =   0.0f;
-		m_eye.y  =   0.0f;
-		m_eye.z  = -35.0f;
-		m_at.x   =   0.0f;
-		m_at.y   =   0.0f;
-		m_at.z   =  -1.0f;
-		m_up.x   =   0.0f;
-		m_up.y   =   1.0f;
-		m_up.z   =   0.0f;
+	void reset() {
+		m_mouseNow        = {0, 0};
+		m_mouseLast       = {0, 0};
+		m_eye             = {0.0f, 0.0f, -35.0f};
+		m_at              = {0.0f, 0.0f, -1.0f};
+		m_up              = {0.0f, 1.0f, 0.0f};
 		m_horizontalAngle = 0.01f;
-		m_verticalAngle = 0.0f;
-		m_mouseSpeed = 0.0020f;
-		m_gamepadSpeed = 0.04f;
-		m_moveSpeed = 30.0f;
-		m_keys = 0;
-		m_mouseDown = false;
+		m_verticalAngle   = 0.0f;
+		m_mouseSpeed      = 0.0020f;
+		m_gamepadSpeed    = 0.04f;
+		m_moveSpeed       = 30.0f;
+		m_keys            = 0;
+		m_mouseDown       = false;
 	}
 
 	void setKeyState(uint8_t _key, bool _down)
@@ -238,25 +224,14 @@ struct Camera
 		m_up = bx::cross(right, direction);
 	}
 
-	void getViewMtx(float* _viewMtx)
-	{
+	void getViewMtx(float* _viewMtx) {
 		bx::mtxLookAt(_viewMtx, bx::load<bx::Vec3>(&m_eye.x), bx::load<bx::Vec3>(&m_at.x), bx::load<bx::Vec3>(&m_up.x) );
 	}
 
-	void setPosition(const bx::Vec3& _pos)
-	{
-		m_eye = _pos;
-	}
-
-	void setVerticalAngle(float _verticalAngle)
-	{
-		m_verticalAngle = _verticalAngle;
-	}
-
-	void setHorizontalAngle(float _horizontalAngle)
-	{
-		m_horizontalAngle = _horizontalAngle;
-	}
+	void setPosition(const bx::Vec3& pos) { m_eye = pos; }
+	void setAt(const bx::Vec3& at) { m_at = at; }
+	void setVerticalAngle(float verticalAngle) { m_verticalAngle = verticalAngle; }
+	void setHorizontalAngle(float horizontalAngle) { m_horizontalAngle = horizontalAngle; }
 
 	MouseCoords m_mouseNow;
 	MouseCoords m_mouseLast;
@@ -277,10 +252,7 @@ struct Camera
 
 static Camera* s_camera = NULL;
 
-void cameraCreate()
-{
-	s_camera = BX_NEW(entry::getAllocator(), Camera);
-}
+void cameraCreate() { s_camera = BX_NEW(entry::getAllocator(), Camera); }
 
 void cameraDestroy()
 {
@@ -288,42 +260,15 @@ void cameraDestroy()
 	s_camera = NULL;
 }
 
-void cameraSetPosition(const bx::Vec3& _pos)
-{
-	s_camera->setPosition(_pos);
-}
+void     cameraSetPosition(const bx::Vec3& pos) { s_camera->setPosition(pos); }
+void     cameraSetHorizontalAngle(float horizontal_angle) { s_camera->setHorizontalAngle(horizontal_angle); }
+void     cameraSetVerticalAngle(float vertical_angle) { s_camera->setVerticalAngle(vertical_angle); }
+void     cameraSetKeyState(uint8_t key, bool down) { s_camera->setKeyState(key, down); }
+void     cameraSetAt(const bx::Vec3& at) { s_camera->setAt(at); }
+void     cameraGetViewMtx(float* view_mtx) { s_camera->getViewMtx(view_mtx); }
+bx::Vec3 cameraGetPosition() { return s_camera->m_eye; }
+bx::Vec3 cameraGetAt() { return s_camera->m_at; }
 
-void cameraSetHorizontalAngle(float _horizontalAngle)
-{
-	s_camera->setHorizontalAngle(_horizontalAngle);
-}
-
-void cameraSetVerticalAngle(float _verticalAngle)
-{
-	s_camera->setVerticalAngle(_verticalAngle);
-}
-
-void cameraSetKeyState(uint8_t _key, bool _down)
-{
-	s_camera->setKeyState(_key, _down);
-}
-
-void cameraGetViewMtx(float* _viewMtx)
-{
-	s_camera->getViewMtx(_viewMtx);
-}
-
-bx::Vec3 cameraGetPosition()
-{
-	return s_camera->m_eye;
-}
-
-bx::Vec3 cameraGetAt()
-{
-	return s_camera->m_at;
-}
-
-void cameraUpdate(float _deltaTime, const entry::MouseState& _mouseState)
-{
-	s_camera->update(_deltaTime, _mouseState);
+void cameraUpdate(float delta_time, const entry::MouseState& mouse_state) {
+	s_camera->update(delta_time, mouse_state);
 }

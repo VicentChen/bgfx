@@ -24,11 +24,10 @@ extern "C" int _main_(int _argc, char** _argv);
 #endif // ENTRY_CONFIG_IMPLEMENT_MAIN
 
 #if ENTRY_CONFIG_IMPLEMENT_MAIN
-#define ENTRY_IMPLEMENT_MAIN(_app, ...)                 \
-	int _main_(int _argc, char** _argv)                 \
-	{                                                   \
-			_app app(__VA_ARGS__);                      \
-			return entry::runApp(&app, _argc, _argv);   \
+#define ENTRY_IMPLEMENT_MAIN(_app, ...) \
+	int _main_(int _argc, char** _argv) { \
+		_app app(__VA_ARGS__); \
+		return entry::runApp(&app, _argc, _argv); \
 	}
 #else
 #define ENTRY_IMPLEMENT_MAIN(_app, ...) \
@@ -311,9 +310,9 @@ namespace entry
 		AppI* m_next;
 
 	private:
-		const char* m_name;
-		const char* m_description;
-		const char* m_url;
+	  const char* m_name        = nullptr;
+	  const char* m_description = nullptr;
+	  const char* m_url         = nullptr;
 	};
 
 	///
